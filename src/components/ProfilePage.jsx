@@ -6,10 +6,8 @@ import { Link } from "react-router-dom";
 import * as Icon from "react-bootstrap-icons";
 
 const ProfilePage = () => {
-  const [data, setData] = useState("");
   const dispatch = useDispatch();
   const profileData = useSelector((state) => state.profile.profileData);
-  console.log(profileData.image);
 
   useEffect(() => {
     dispatch(getProfilData());

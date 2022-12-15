@@ -1,11 +1,46 @@
 import "./App.css";
+import { Container } from "react-bootstrap";
+import TopNavBar from "./components/TopNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-//token:-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk3MTIxMmM5NmRmYjAwMTUyMWE1Y2MiLCJpYXQiOjE2NzA4NDQ5NDYsImV4cCI6MTY3MjA1NDU0Nn0.o0wzVkLb1rRxR45701ej3eg8RcFr24X2UsPEKcR487A
+import ProfilePage from "./components/ProfilePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+//import UserProfile from "./components/UserProfile";
+import ExperienceSection from "./components/ExperienxeSection";
+import AnalyticsComponent from "./components/AnalyticsComponent";
+import EducationSection from "./components/EducationalComponent";
+import Activity from "./components/ActivityComponent";
+import AboutComponent from "./components/AboutComponent";
+import Languages from "./components/LanguageComponent";
+import ResourcesComponent from "./components/ResourcesComponent";
+import Footer from "./components/FooterComponent";
+import SkillComponent from "./components/SkillComponent";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Let's start our linkedIn Clone project</h1>
-    </div>
+    <BrowserRouter>
+      <div className="mainBGColor">
+        <Container>
+          <TopNavBar />
+
+          <ProfilePage />
+
+          {/* <UserProfile /> */}
+          <AnalyticsComponent />
+          <ResourcesComponent />
+          <Activity />
+          <ExperienceSection />
+          <EducationSection />
+          <SkillComponent />
+          <AboutComponent />
+          <Languages />
+          <Footer />
+        </Container>
+        <Routes>
+          {/* <Route element={<SearchResults />} path="/search" /> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

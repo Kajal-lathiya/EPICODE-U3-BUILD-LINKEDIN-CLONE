@@ -4,7 +4,7 @@ import "../App.css";
 import * as Icon from "react-bootstrap-icons";
 import ModalComponent from "./ModalComponent";
 import { useSelector, useDispatch } from "react-redux";
-import { getExperienceData } from "../Redux/actions/index";
+import { getExperienceData,  } from "../Redux/actions/index";
 
 const ExperienceSection = () => {
   const [show, setShow] = useState(false);
@@ -16,11 +16,13 @@ const ExperienceSection = () => {
   const onClickBack = () => setEditShow(false);
 
   const dispatch = useDispatch();
-  const experienceData = useSelector((state) => state.profile.experienceData);
+  // const redux = useSelector((state)=> state)
+  const experienceData = useSelector((state) => state.experience?.experienceData);
   console.log("experienceData:", experienceData);
   
   useEffect(() => {
     dispatch(getExperienceData());
+    // dispatch(createNewExperience());
   }, []);
 
   return (

@@ -373,8 +373,8 @@ export const deleteSpecificExperience = (query) => {
   };
 };
 
-export const createNewExperience = (query) => {
-  console.log(query);
+export const createNewExperience = (data) => {
+  console.log(data);
   return async (dispatch) => {
     const options = {
       method: "POST",
@@ -384,11 +384,11 @@ export const createNewExperience = (query) => {
         Authorization:
         "Bearer " +
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZWNmNGM5NmRmYjAwMTUyMWE1YjYiLCJpYXQiOjE2NzA4MzU0NDQsImV4cCI6MTY3MjA0NTA0NH0.OiSWNKNb0QBsvVyYlCXEefOvmeyzTcK6f2yax4u2JY8"
-    }
+      },
+      body: JSON.stringify(data),
     };
     const userId = "5fc4ae95b708c200175de88d";
-    const expId = 3;
-    const url = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${expId}`;
+    const url = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
     try {
       let response = await fetch(url, options);
       console.log('response:', response);

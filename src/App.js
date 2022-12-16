@@ -1,11 +1,27 @@
+import logo from "./logo.svg";
 import "./App.css";
+import { Container } from "react-bootstrap";
+import TopNavBar from "./components/TopNavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
-//token:-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk3MTIxMmM5NmRmYjAwMTUyMWE1Y2MiLCJpYXQiOjE2NzA4NDQ5NDYsImV4cCI6MTY3MjA1NDU0Nn0.o0wzVkLb1rRxR45701ej3eg8RcFr24X2UsPEKcR487A
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserProfile from "./components/UserProfile";
+import MainProfilePage from "./components/MainProfilePage";
+import EditIntro from "./components/EditIntro";
+import Home from "./components/Home";
 function App() {
   return (
-    <div className="App">
-      <h1>Let's start our linkedIn Clone project</h1>
-    </div>
+    <BrowserRouter>
+      <Container>
+        <TopNavBar />
+      </Container>
+
+      <Routes>
+        <Route element={<Home />} path="/" />
+        <Route element={<EditIntro />} path="/edit" />
+        <Route element={<MainProfilePage />} path="/profile" />
+        <Route element={<UserProfile />} path="/user-profile/:userId" />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
